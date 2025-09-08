@@ -25,24 +25,24 @@ $(document).ready(function(){
 
 	$(".email2").append(email2());
 	function email2(){
-		var email = "akebeci";
-		email = email + " at";
-		email = email + " ku";
-		email = email + " dot";
-		email = email + " edu";
-		email = email + " dot";
-		email = email + " tr";
+		var email = "nihan";
+		email = email + ".";
+		email = email + "tanisali";
+		email = email + "@";
+		email = email + "inria";
+		email = email + ".";
+		email = email + "fr";
 		return email;
 	}
 
 	function email2_(){
-		var email = "akebeci";
+		var email = "nihan";
+		email = email + ".";
+		email = email + "tanisali";
 		email = email + "@";
-		email = email + "ku";
+		email = email + "inria";
 		email = email + ".";
-		email = email + "edu";
-		email = email + ".";
-		email = email + "tr";
+		email = email + "fr";
 		return email;
 	}
 
