@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nihan Tanısalı</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Nihan Tanısalı — coding theory, additive combinatorics, combinatorics on words." />
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  /* === Sticky footer layout === */
+  html, body { height: 100%; margin: 0; }
+  body { display: flex; flex-direction: column; }
+  .w3-content { flex: 1; }
+  footer { margin-top: auto; }
+
+  /* === Base === */
+  html,body,h1,h2,h3,h4,h5,h6 { font-family: "Roboto", sans-serif; }
+  hr { border: none; border-top: 1px solid #b0b0b0; margin: 8px 0; }
+  .brand { color: rgb(2, 61, 121); }
+
+  /* === Collapsible === */
+  .collapsible-content { display: none; padding: 0 16px; }
+  .collapsible-content.open { display: block; }
+  button.w3-button { background-color: white; border: none; font-size: 20px; width: 100%; text-align:left; }
+  button.w3-button:hover { background-color: #f1f1f1; }
+  /* Chevron color + rotate on open */
+  button.w3-button i.fa-chevron-down { color: rgb(2, 61, 121); transition: transform .2s ease; }
+  button.w3-button.open i.fa-chevron-down { transform: rotate(180deg); }
+
+  /* === Profile lines === */
+  .contact-line, .link-line {
+    display: grid;
+    grid-template-columns: 24px 1fr; /* icon | text */
+    align-items: center;
+    column-gap: 10px;
+    margin: 10px 0;
+    line-height: 1.65;
+  }
+  .contact-line i, .link-line i,
+  .contact-line img, .link-line img {
+    width: 18px; height: 18px; object-fit: contain;
+  }
+
+  .w3-twothird.w3-container { padding-top: 14px !important; padding-bottom: 18px !important; }
+  .w3-third img { border-radius: 4px; }
+  .w3-container h2.brand { margin-bottom: 18px; }
+
+  /* inline email copy icon */
+  .inline-with-icon { display: inline-flex; align-items: center; gap: 6px; }
+  .copy-icon { width: 18px; height: 18px; margin-left: 4px; vertical-align: middle; cursor: pointer; opacity: .9; }
+
+  /* === Fixed full-viewport wallpaper (page grows but BG stays) === */
+  body { position: relative; background: transparent !important; }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1; /* behind all content */
+    background:
+      linear-gradient(rgba(255,255,255,0.623), rgba(255,255,255,0.61)),
+      url('cor.png') center / cover no-repeat;
+    will-change: transform;
+  }
+</style>
+
+</head>
+
+<body style="background:linear-gradient(rgba(255,255,255,0.623), rgba(255,255,255,0.61)), url('cor.png') center/cover no-repeat;">
+
+<!-- Page Container (all content stays INSIDE this .w3-content) -->
+<div class="w3-content w3-margin-top" style="max-width:1200px;">
+
+  <!-- PROFILE CARD -->
+  <div class="w3-container w3-card w3-margin-bottom" style="background-color:white;">
+    <div class="w3-row-padding" style="padding-top:24px; padding-bottom:10px;">
+      <div class="w3-third">
+        <img src="pic.png" style="width:100%" alt="Profile photo">
+        <div class="w3-container" style="padding-top:8px; margin-bottom:10px;">
+          <h2 class="brand" style="margin:0;">Nihan Tanısalı</h2>
+        </div>
+      </div>
+
+      <div class="w3-twothird w3-container">
+        <!-- Konum -->
+        <div class="contact-line">
+          <i class="fa fa-map-marker"></i>
+          <span>INRIA Saclay & École polytechnique <a href="https://team.inria.fr/grace/" target="_blank" class="brand">GRACE team</a></span>
+        </div>
+        <!-- E‑posta -->
+        <div class="contact-line contact-line--email">
+          <i class="fa fa-envelope"></i>
+          <span class="inline-with-icon">nihan dot tanisali at inria dot fr
+            <img src="copy-paste-symbol.png" class="copy-icon" title="Click to copy" alt="copy">
+          </span>
+        </div>
+        <!-- ENCODE -->
+        <div class="link-line">
+          <img src="encode.png" alt="ENCODE logo" style="height:1.5em; width:auto;">
+          <span>I am an <a href="https://www.encode-doctoral-network.eu/" target="_blank" rel="noopener noreferrer" class="brand" style="text-decoration: underline;">ENCODE</a> PhD Candidate</span>
+        </div>
+        <!-- Villager -->
+        <div class="link-line">
+          <img src="NMK-horoz.png" alt="Nesin Mathematics Village rooster" style="height:1.5em; width:auto;">
+          <span>I am a <a href="https://nesinkoyleri.org/en/main-page/" target="_blank" class="brand">villager!</a></span>
+        </div>
+        <!-- YouTube -->
+        <div class="link-line">
+          <i class="fa fa-youtube"></i>
+          <span><a href="https://www.youtube.com/@AliceandBob" target="_blank" class="brand"><b>AliceandBob</b></a></span>
+        </div>
+
+        <hr>
+        <p class="w3-large w3-text-theme"><b class="brand"><i class="fa fa-lightbulb-o fa-fw w3-margin-right brand"></i>Research Interests</b></p>
+        <p>coding theory, additive combinatorics, combinatorics on words</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Education -->
+  <div class="w3-container w3-card w3-margin-bottom" style="background-color:white;">
+    <button class="w3-button" onclick="toggleSection('edu')">
+      <i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge brand"></i>Education
+      <i class="fa fa-chevron-down w3-right"></i>
+    </button>
+    <div id="edu" class="collapsible-content">
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>INRIA Saclay & École polytechnique</b></h5>
+        <h6 class="w3-text-grey"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2023 - <span class="w3-tag w3-round" style="background-color: rgb(2, 61, 121);">current</span></h6>
+        <p>PhD student under the supervision of <a href="https://www.lix.polytechnique.fr/Labo/Alain.Couvreur/" class="brand" target="_blank">Alain Couvreur</a> and <a href="https://people.ucd.ie/gary.mcguire" class="brand" target="_blank">Gary McGuire</a>.</p>
+      </div>
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>Koç University</b></h5>
+        <h6 class="w3-text-grey"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2021 - 2023</h6>
+        <p>Mathematics, MSc — supervised by <a href="https://ajamnesh.github.io/" class="brand" target="_blank">Asgar Jamneshan</a>.</p>
+        <h6 class="w3-text-grey"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2016 - 2021</h6>
+        <p>Mathematics, BSc</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Publications -->
+  <div class="w3-container w3-card w3-margin-bottom" style="background-color:white;">
+    <button class="w3-button" onclick="toggleSection('pub')">
+      <i class="fa fa-pencil fa-fw w3-margin-right w3-xxlarge brand"></i>Publications
+      <i class="fa fa-chevron-down w3-right"></i>
+    </button>
+    <div id="pub" class="collapsible-content">
+      <div class="w3-container">
+        <ul>
+          <li>
+            Alain Couvreur, Rakhi Pratihar, Nihan Tanısalı, Ilaria Zappatore.
+            <a href="https://arxiv.org/abs/2412.15160" target="_blank" rel="noopener noreferrer" style="text-decoration:none;" class="brand">
+              On the structure of the Schur squares of Twisted Generalized Reed-Solomon codes and applications to cryptanalysis.
+            </a>
+            Post-Quantum Cryptography. PQCrypto 2025. Lecture Notes in Computer Science, vol 15577.
+            <br>
+            <a href="https://github.com/nihantanisali/TGRS" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+              <i class="fa fa-github fa-fw w3-margin-right w3-xlarge brand"></i>Sage implementation of the attack
+            </a>
+          </li>
+        </ul>
+
+        <h5 class="w3-opacity"><b>Preprints</b></h5>
+        <ul>
+          <li>
+            Sadık Eyidoğan, Haydar Göral, Nihan Tanısalı.
+            <span style="color:gray;">Box Progressions, Abelian Power-free Morphisms and A Sieving for the Template Method</span> (submitted)
+            <br>
+            <a href="https://github.com/nihantanisali/Abelian-Power-Free-Morphisms" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+              <i class="fa fa-github fa-fw w3-margin-right w3-xlarge brand"></i>Codes
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Some Presentations -->
+  <div class="w3-container w3-card w3-margin-bottom" style="background-color:white;">
+    <button class="w3-button" onclick="toggleSection('pres')">
+      <i class="fa fa-plus-circle fa-fw w3-margin-right w3-xxlarge brand"></i>Some Presentations
+      <i class="fa fa-chevron-down w3-right"></i>
+    </button>
+    <div id="pres" class="collapsible-content">
+      <div class="w3-container">
+        <ul>
+          <li>On the structure of the Schur squares of Twisted Generalized Reed-Solomon codes and applications to cryptanalysis, Journées Codage et Cryptographie (C2), April 2, 
+            2025; PQCrypto, April 8, 2025; <a href="https://sites.google.com/view/picseminar/home" class="brand" target="_blank">PICS seminar</a>, 14 October 2025. <a href="TGRS_pics.pdf" class="brand" target="_blank">slides</a>  </li>
+          <li>Box Progressions and Abelian Power Free Words, Journées Arithmétiques, June 2025 <a href="JA_presentation.pdf" target="_blank" class="brand">slides</a></li>
+          <li>Vosper Theorem From Additive Combinatorics, IZTECH departmental seminars, May 22, 2024</li>
+          <li>Classification of Small Square Spaces, Suusan CIMPA summer school, 2022</li>
+        </ul>
+        <br>
+      </div>
+    </div>
+  </div>
+
+  <!-- Teaching -->
+  <div class="w3-container w3-card w3-margin-bottom" style="background-color:white;">
+    <button class="w3-button" onclick="toggleSection('teach')">
+      <i class="fa fa-book fa-fw w3-margin-right w3-xxlarge brand"></i>Teaching
+      <i class="fa fa-chevron-down w3-right"></i>
+    </button>
+    <div id="teach" class="collapsible-content">
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>Nesin Mathematics Village</b></h5>
+        <h6 class="w3-text-grey"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2024</h6>
+        <ul>
+          <li>
+            <a href="https://nesinkoyleri.org/dersler/2024-topics-in-additive-combinatorics-goral/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;" class="brand">
+              Topics in Additive Combinatorics 2024
+            </a> (with H. Göral, 2024)
+          </li>
+        </ul>
+        <br>
+      </div>
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>Koç University</b> — teaching assistant</h5>
+        <h6 class="w3-text-grey"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2018–2023</h6>
+        <ul>
+          <li>Graduate Real Analysis-2 (2023)</li>
+          <li>Functional Analysis (2022)</li>
+          <li>Graduate Real Analysis (2022)</li>
+          <li>Complex Analysis ×2 (2022–2023)</li>
+          <li>Real Analysis ×2 (2021–2022)</li>
+          <li>Ordinary Differential Equations ×2 (2021–2022)</li>
+          <li>Linear Algebra (2019)</li>
+          <li>Multivariable Calculus (2018)</li>
+          <li>Calculus (2018)</li>
+        </ul>
+        <br>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /w3-content -->
+
+<footer style="background-color:rgb(2, 61, 121); color:aliceblue" class="w3-container w3-center w3-margin-top">
+  <p><span id="year">as of 2025</span></p>
+  <a href="https://github.com/nihantanisali" target="_blank"><i class="fa fa-github w3-hover-opacity"></i></a>
+</footer>
+
+<script>
+function toggleSection(id) {
+  const section = document.getElementById(id);
+  if (!section) return;
+  section.classList.toggle('open');
+  const btn = section.previousElementSibling;
+  if (btn && btn.classList && btn.classList.contains('w3-button')) {
+    btn.classList.toggle('open');
+  }
+}
+
+// Copy-to-clipboard near cursor for email
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.contact-line--email .inline-with-icon');
+  const copyBtn = container ? container.querySelector('.copy-icon') : null;
+  if (!container || !copyBtn) return;
+
+  function showCursorNote(msg, x, y) {
+    let note = document.getElementById('cursor-note');
+    if (!note) {
+      note = document.createElement('div');
+      note.id = 'cursor-note';
+      note.style.position = 'fixed';
+      note.style.pointerEvents = 'none';
+      note.style.background = 'rgba(2, 61, 121, 0.95)';
+      note.style.color = '#fff';
+      note.style.padding = '6px 8px';
+      note.style.borderRadius = '8px';
+      note.style.fontSize = '12px';
+      note.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
+      note.style.transition = 'opacity .2s ease, transform .2s ease';
+      note.style.zIndex = '9999';
+      document.body.appendChild(note);
+    }
+    note.textContent = msg;
+    let left = x + 12, top = y + 12;
+    note.style.opacity = '1';
+    note.style.transform = 'translateY(0)';
+    note.style.left = left + 'px';
+    note.style.top = top + 'px';
+    const rect = note.getBoundingClientRect();
+    const vw = window.innerWidth, vh = window.innerHeight;
+    if (left + rect.width + 8 > vw) left = Math.max(8, vw - rect.width - 8);
+    if (top + rect.height + 8 > vh) top = Math.max(8, vh - rect.height - 8);
+    note.style.left = left + 'px';
+    note.style.top = top + 'px';
+    clearTimeout(note.hideTimer);
+    note.hideTimer = setTimeout(() => { note.style.opacity = '0'; note.style.transform = 'translateY(-4px)'; }, 1000);
+  }
+
+  copyBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const obf = (container.textContent || '').trim();
+    const addr = obf.replace(/\sdot\s/g, '.').replace(/\sat\s/g, '@').replace(/\s/g, '');
+    const done = () => showCursorNote('E-mail copied to clipboard', e.clientX, e.clientY);
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(addr).then(done).catch(() => { fallbackCopy(addr); done(); });
+      } else { fallbackCopy(addr); done(); }
+    } catch (err) { console.error(err); showCursorNote('Copy failed', e.clientX, e.clientY); }
+  });
+
+  function fallbackCopy(text) {
+    const temp = document.createElement('input');
+    temp.value = text; document.body.appendChild(temp); temp.select();
+    document.execCommand('copy'); temp.remove();
+  }
+});
+</script>
+</body>
+</html>
