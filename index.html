@@ -44,6 +44,17 @@
     width: 18px; height: 18px; object-fit: contain;
   }
 
+  /* === Icon-only profiles row === */
+  .profiles-row{
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin: 10px 0 10px 34px; /* 24px icon col + 10px gap = hizalama */
+  }
+  .profiles-row a{ text-decoration: none; }
+  .profiles-row i{ font-size: 20px; }
+  .profiles-row .rg-icon{ height: 18px; width: auto; display: block; }
+
   .w3-twothird.w3-container { padding-top: 14px !important; padding-bottom: 18px !important; }
   .w3-third img { border-radius: 4px; }
   .w3-container h2.brand { margin-bottom: 18px; }
@@ -89,7 +100,7 @@
           <i class="fa fa-map-marker"></i>
           <span>INRIA Saclay & École polytechnique <a href="https://team.inria.fr/grace/" target="_blank" class="brand">GRACE team</a></span>
         </div>
-        <!-- E‑posta -->
+        <!-- E-posta -->
         <div class="contact-line contact-line--email">
           <i class="fa fa-envelope"></i>
           <span class="inline-with-icon">nihan dot tanisali at inria dot fr
@@ -106,33 +117,27 @@
           <img src="NMK-horoz.png" alt="Nesin Mathematics Village rooster" style="height:1.5em; width:auto;">
           <span>I am a <a href="https://nesinkoyleri.org/en/main-page/" target="_blank" class="brand">villager!</a></span>
         </div>
-        <!-- YouTube -->
-        <div class="link-line">
-          <i class="fa fa-youtube"></i>
-          <span><a href="https://www.youtube.com/@AliceandBob" target="_blank" class="brand"><b>AliceandBob</b></a></span>
-        </div>
-        
-        <!-- LinkedIn -->
-        <div class="link-line">
-          <i class="fa fa-linkedin"></i>
-          <span>
-            <a href="https://www.linkedin.com/in/nihan-tanisali-566737321/" target="_blank" class="brand">
-              LinkedIn
-            </a>
-          </span>
-        </div>
 
-        <!-- ResearchGate -->
-        <div class="link-line">
-          <img src="researchgate.png" alt="ResearchGate logo" style="height:1.5em; width:auto;">
-          <span>
-            <a href="https://www.researchgate.net/profile/Nihan-Tanisali" target="_blank" class="brand">
-              ResearchGate
-            </a>
-          </span>
-        </div>
+        <!-- Profiles: icon-only -->
+        <div class="profiles-row">
+          <a href="https://www.youtube.com/@AliceandBob"
+             target="_blank" rel="noopener noreferrer"
+             class="brand" title="YouTube" aria-label="YouTube">
+            <i class="fa fa-youtube"></i>
+          </a>
 
-        
+          <a href="https://www.linkedin.com/in/nihan-tanisali-566737321/"
+             target="_blank" rel="noopener noreferrer"
+             class="brand" title="LinkedIn" aria-label="LinkedIn">
+            <i class="fa fa-linkedin"></i>
+          </a>
+
+          <a href="https://www.researchgate.net/profile/Nihan-Tanisali"
+             target="_blank" rel="noopener noreferrer"
+             class="brand" title="ResearchGate" aria-label="ResearchGate">
+            <img src="researchgate.png" alt="ResearchGate" class="rg-icon">
+          </a>
+        </div>
 
         <hr>
         <p class="w3-large w3-text-theme"><b class="brand"><i class="fa fa-lightbulb-o fa-fw w3-margin-right brand"></i>Research Interests</b></p>
@@ -352,3 +357,4 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+
