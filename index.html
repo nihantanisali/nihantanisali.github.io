@@ -88,6 +88,23 @@
     body { position: relative; background: transparent !important; }
 body { background: #F5F7FA !important; }
 
+@media (max-width: 992px){
+  /* w3-row-padding içindeki iki kolon (stack olunca) aynı sol/sağ padding */
+  .w3-row-padding > .w3-third,
+  .w3-row-padding > .w3-twothird{
+    padding-left: 28px !important;
+    padding-right: 28px !important;
+  }
+
+  /* ikon/img sütununu aynı “blok” hissiyle hizala */
+  .contact-line > i,
+  .contact-line > img,
+  .link-line > i,
+  .link-line > img{
+    justify-self: center;
+  }
+}
+
   </style>
 </head>
 
@@ -118,7 +135,7 @@ body { background: #F5F7FA !important; }
 
 <!-- Location (smaller) -->
 <div class="contact-line" style="margin-top:0; font-size:0.9em; line-height:1.2;">
-  <i class="fa fa-map-marker  brand" style="font-size:1em;"></i>
+<i class="fa fa-map-marker fa-fw brand" style="font-size:1em;"></i>
   <span>
     INRIA Saclay &amp; École polytechnique
     <a href="https://team.inria.fr/grace/" target="_blank" class="brand">GRACE team</a>
@@ -127,7 +144,7 @@ body { background: #F5F7FA !important; }
 
 <!-- Email (smaller) + extra space under -->
 <div class="contact-line contact-line--email" style="font-size:0.9em; line-height:1.2; margin-bottom:22px;">
-  <i class="fa fa-envelope  brand" style="font-size:1em;"></i>
+<i class="fa fa-envelope  fa-fw brand" style="font-size:1em;"></i>
   <span class="inline-with-icon">
     nihan dot tanisali at inria dot fr
     <img src="copy-paste-symbol.png" class="copy-icon" title="Click to copy" alt="copy">
