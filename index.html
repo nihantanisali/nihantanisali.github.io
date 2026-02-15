@@ -9,148 +9,218 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-  /* === Sticky footer layout === */
-  html, body { height: 100%; margin: 0; }
-  body { display: flex; flex-direction: column; }
-  .w3-content { flex: 1; }
-  footer { margin-top: auto; }
 
-  /* === Base === */
-  html,body,h1,h2,h3,h4,h5,h6 { font-family: "Roboto", sans-serif; }
-  hr { border: none; border-top: 1px solid #b0b0b0; margin: 8px 0; }
-  .brand { color: rgb(2, 61, 121); }
+  <style>
+    /* === Sticky footer layout === */
+    html, body { height: 100%; margin: 0; }
+    body { display: flex; flex-direction: column; }
+    .w3-content { flex: 1; }
+    footer { margin-top: auto; }
 
-  /* === Collapsible === */
-  .collapsible-content { display: none; padding: 0 16px; }
-  .collapsible-content.open { display: block; }
-  button.w3-button { background-color: white; border: none; font-size: 20px; width: 100%; text-align:left; }
-  button.w3-button:hover { background-color: #f1f1f1; }
-  /* Chevron color + rotate on open */
-  button.w3-button i.fa-chevron-down { color: rgb(2, 61, 121); transition: transform .2s ease; }
-  button.w3-button.open i.fa-chevron-down { transform: rotate(180deg); }
+    /* === Base === */
+    html,body,h1,h2,h3,h4,h5,h6 { font-family: "Roboto", sans-serif; }
+    hr { border: none; border-top: 1px solid #b0b0b0; margin: 8px 0; }
+    .brand { color: rgb(2, 61, 121); }
 
-  /* === Profile lines === */
-  .contact-line, .link-line {
-    display: grid;
-    grid-template-columns: 24px 1fr; /* icon | text */
-    align-items: center;
-    column-gap: 10px;
-    margin: 10px 0;
-    line-height: 1.65;
-  }
-  .contact-line i, .link-line i,
-  .contact-line img, .link-line img {
-    width: 18px; height: 18px; object-fit: contain;
-  }
+    /* === Collapsible === */
+    .collapsible-content { display: none; padding: 0 16px; }
+    .collapsible-content.open { display: block; }
 
-  /* === Icon-only profiles row === */
-  .profiles-row{
-    display: flex;
-    gap: 14px;
-    align-items: center;
-    margin: 10px 0 10px 34px; /* 24px icon col + 10px gap = hizalama */
-  }
-  .profiles-row a{ text-decoration: none; }
-  .profiles-row i{ font-size: 20px; }
-  .profiles-row .rg-icon{ height: 18px; width: auto; display: block; }
+    button.w3-button{
+      background-color: white;
+      border: none;
+      font-size: 20px;
+      width: 100%;
+      text-align: left;
+    }
+    button.w3-button:hover{ background-color: #f1f1f1; }
 
-  .w3-twothird.w3-container { padding-top: 14px !important; padding-bottom: 18px !important; }
-  .w3-third img { border-radius: 4px; }
-  .w3-container h2.brand { margin-bottom: 18px; }
+    /* Chevron: smaller + rotate on open */
+    button.w3-button i.fa-chevron-down{
+      color: rgb(2, 61, 121);
+      transition: transform .2s ease;
+      font-size: 14px;   /* smaller arrow */
+      line-height: 1;
+      margin-top: 2px;   /* tiny vertical tweak */
+    }
+    button.w3-button.open i.fa-chevron-down{ transform: rotate(180deg); }
 
-  /* inline email copy icon */
-  .inline-with-icon { display: inline-flex; align-items: center; gap: 6px; }
-  .copy-icon { width: 18px; height: 18px; margin-left: 4px; vertical-align: middle; cursor: pointer; opacity: .9; }
 
-  /* === Fixed full-viewport wallpaper (page grows but BG stays) === */
-  body { position: relative; background: transparent !important; }
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1; /* behind all content */
-    background:
-      linear-gradient(rgba(255,255,255,0.623), rgba(255,255,255,0.61)),
-      url('cor.png') center / cover no-repeat;
-    will-change: transform;
-  }
-</style>
+    /* === Profile lines === */
+    .contact-line, .link-line{
+      display: grid;
+      grid-template-columns: 24px 1fr; /* icon | text */
+      align-items: center;
+      column-gap: 10px;
+      margin: 10px 0;
+      line-height: 1.65;
+    }
+    .contact-line i, .link-line i,
+    .contact-line img, .link-line img{
+      width: 18px; height: 18px; object-fit: contain;
+    }
 
+    /* === Icon-only profiles row === */
+    .profiles-row{
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin: 10px 0 10px 34px; /* 24px icon col + 10px gap = hizalama */
+    }
+    .profiles-row a{ text-decoration: none; }
+    .profiles-row i{ font-size: 20px; }
+    .profiles-row .rg-icon{ height: 18px; width: auto; display: block; }
+
+    .w3-third img { border-radius: 4px; }
+    .w3-container h2.brand { margin-bottom: 18px; }
+
+    /* inline email copy icon */
+    .inline-with-icon { display: inline-flex; align-items: center; gap: 6px; }
+    .copy-icon{
+      width: 18px; height: 18px;
+      margin-left: 4px;
+      vertical-align: middle;
+      cursor: pointer;
+      opacity: .9;
+    }
+
+    /* === Fixed full-viewport wallpaper (page grows but BG stays) === */
+    body { position: relative; background: transparent !important; }
+body { background: #F5F7FA !important; }
+
+  </style>
 </head>
 
-<body style="background:linear-gradient(rgba(255,255,255,0.623), rgba(255,255,255,0.61)), url('cor.png') center/cover no-repeat;">
+<body>
 
-<!-- Page Container (all content stays INSIDE this .w3-content) -->
-<div class="w3-content w3-margin-top" style="max-width:1200px;">
+  <!-- Page Container -->
+  <div class="w3-content w3-margin-top" style="max-width:1200px;">
 
-  <!-- PROFILE CARD -->
-  <div class="w3-container w3-card w3-margin-bottom" style="background-color:white;">
-    <div class="w3-row-padding" style="padding-top:24px; padding-bottom:10px;">
-      <div class="w3-third">
-        <img src="pic.png" style="width:100%" alt="Profile photo">
-        <div class="w3-container" style="padding-top:8px; margin-bottom:10px;">
-          <h2 class="brand" style="margin:0;">Nihan Tanısalı</h2>
-        </div>
-      </div>
+    <!-- PROFILE CARD -->
+    <div class="w3-container w3-card w3-margin-bottom" style="background-color:white;">
+      <div class="w3-row-padding" style="padding-top:24px; padding-bottom:10px;">
 
-      <div class="w3-twothird w3-container">
-        <!-- Konum -->
-        <div class="contact-line">
-          <i class="fa fa-map-marker"></i>
-          <span>INRIA Saclay & École polytechnique <a href="https://team.inria.fr/grace/" target="_blank" class="brand">GRACE team</a></span>
-        </div>
-        <!-- E-posta -->
-        <div class="contact-line contact-line--email">
-          <i class="fa fa-envelope"></i>
-          <span class="inline-with-icon">nihan dot tanisali at inria dot fr
-            <img src="copy-paste-symbol.png" class="copy-icon" title="Click to copy" alt="copy">
-          </span>
-        </div>
-        <!-- ENCODE -->
-        <div class="link-line">
-          <img src="encode.png" alt="ENCODE logo" style="height:1.5em; width:auto;">
-          <span>I am an <a href="https://www.encode-doctoral-network.eu/" target="_blank" rel="noopener noreferrer" class="brand" style="text-decoration: underline;">ENCODE</a> PhD Candidate</span>
-        </div>
-        <!-- Villager -->
-        <div class="link-line">
-          <img src="NMK-horoz.png" alt="Nesin Mathematics Village rooster" style="height:1.5em; width:auto;">
-          <span>I am a <a href="https://nesinkoyleri.org/en/main-page/" target="_blank" class="brand">villager!</a></span>
-        </div>
+        <!-- LEFT: photo + name + location + email -->
+        <!-- YATAY BOSLUK: padding-right -->
+        <div class="w3-third" style="padding-right:28px;">
 
-        <!-- Profiles: icon-only -->
-        <div class="profiles-row">
-          <a href="https://www.youtube.com/@AliceandBob"
-             target="_blank" rel="noopener noreferrer"
-             class="brand" title="YouTube" aria-label="YouTube">
-            <i class="fa fa-youtube"></i>
-          </a>
 
-          <a href="https://www.linkedin.com/in/nihan-tanisali-566737321/"
-             target="_blank" rel="noopener noreferrer"
-             class="brand" title="LinkedIn" aria-label="LinkedIn">
-            <i class="fa fa-linkedin"></i>
-          </a>
+<img src="pic.png" style="width:92%; display:block; margin:0 auto 22px auto;" alt="Profile photo">
 
-          <a href="https://www.researchgate.net/profile/Nihan-Tanisali"
-             target="_blank" rel="noopener noreferrer"
-             class="brand" title="ResearchGate" aria-label="ResearchGate">
-            <img src="researchgate.png" alt="ResearchGate" class="rg-icon">
-          </a>
+
+<!-- NAME (same text start as location/email) -->
+<div class="contact-line" style="margin:0 0 22px 0;">
+  <span></span>
+  <p class="w3-text-theme brand" style="margin:0; font-size:18px; font-weight:600; line-height:1.2;">
+    Nihan Tanısalı
+  </p>
+</div>
+
+
+<!-- Location (smaller) -->
+<div class="contact-line" style="margin-top:0; font-size:0.9em; line-height:1.2;">
+  <i class="fa fa-map-marker" style="font-size:1em;"></i>
+  <span>
+    INRIA Saclay &amp; École polytechnique
+    <a href="https://team.inria.fr/grace/" target="_blank" class="brand">GRACE team</a>
+  </span>
+</div>
+
+<!-- Email (smaller) + extra space under -->
+<div class="contact-line contact-line--email" style="font-size:0.9em; line-height:1.2; margin-bottom:22px;">
+  <i class="fa fa-envelope" style="font-size:1em;"></i>
+  <span class="inline-with-icon">
+    nihan dot tanisali at inria dot fr
+    <img src="copy-paste-symbol.png" class="copy-icon" title="Click to copy" alt="copy">
+  </span>
+</div>
+
+
         </div>
 
-        <hr>
-        <p class="w3-large w3-text-theme"><b class="brand"><i class="fa fa-lightbulb-o fa-fw w3-margin-right brand"></i>Research Interests</b></p>
-        <p>coding theory, additive combinatorics, combinatorics on words</p>
-        <br>
+        <!-- RIGHT: about + (villager/encode/icons) + research interests -->
+        <div class="w3-twothird w3-container" style="padding-left:28px; padding-top:14px; padding-bottom:18px;">
+<!-- ABOUT (title + icons on same row) -->
+<div style="display:flex; align-items:flex-start; justify-content:space-between; gap:25px; flex-wrap:wrap; margin-bottom:25px;">
+  <p class="w3-text-theme brand" style="margin:0; font-size:18px; font-weight:600; line-height:1.2;">
+    <i class="fa fa-user fa-fw w3-margin-right brand"></i>About
+  </p>
+
+  <div class="profiles-row" style="margin:0;">
+    <a href="https://www.youtube.com/@AliceandBob"
+       target="_blank" rel="noopener noreferrer"
+       class="brand" title="YouTube" aria-label="YouTube">
+      <i class="fa fa-youtube"></i>
+    </a>
+
+    <a href="https://www.linkedin.com/in/nihan-tanisali-566737321/"
+       target="_blank" rel="noopener noreferrer"
+       class="brand" title="LinkedIn" aria-label="LinkedIn">
+      <i class="fa fa-linkedin"></i>
+    </a>
+
+    <a href="https://www.researchgate.net/profile/Nihan-Tanisali"
+       target="_blank" rel="noopener noreferrer"
+       class="brand" title="ResearchGate" aria-label="ResearchGate">
+      <img src="researchgate.png" alt="ResearchGate" class="rg-icon">
+    </a>
+  </div>
+</div>
+
+<p style="margin:0 0 25px 0;">
+  I am a PhD candidate at INRIA Saclay &amp; École polytechnique.
+  My research focuses on coding theory and related topics in combinatorics.
+</p>
+
+          <!-- ENCODE + Villager under About -->
+          <div class="link-line" style="margin-top:10px;">
+            <img src="encode.png" alt="ENCODE logo" style="height:1.5em; width:auto;">
+            <span>
+              I am an
+              <a href="https://www.encode-doctoral-network.eu/" target="_blank" rel="noopener noreferrer"
+                 class="brand" style="text-decoration: underline;">Encode</a>
+              PhD Candidate.
+            </span>
+          </div>
+
+          <div class="link-line">
+            <img src="NMK-horoz.png" alt="Nesin Mathematics Village rooster" style="height:1.5em; width:auto;">
+            <span>
+              I am a
+              <a href="https://nesinkoyleri.org/en/main-page/" target="_blank" class="brand">villager</a>!
+            </span>
+          </div>
+          <div class="link-line">
+            <img src="arithmeticwinter.svg" alt="Arithmetic Winter School" style="height:1.5em; width:auto;">
+            <span>
+              I am in the organization committee of 
+              <a href="https://arithmeticwinter.github.io/" target="_blank" class="brand">Arithmetic Winter School</a>.
+            </span>
+          </div>
+
+
+
+          <br>
+
+          <!-- RESEARCH INTERESTS -->
+          <p class="w3-large w3-text-theme">
+            <b class="brand"><i class="fa fa-lightbulb-o fa-fw w3-margin-right brand"></i>Research Interests</b>
+          </p>
+          <p>coding theory, additive combinatorics, combinatorics on words</p>
+
+          <br>
+
+        </div>
+
       </div>
     </div>
-  </div>
+
+
 
   <!-- Education -->
   <div class="w3-container w3-card w3-margin-bottom" style="background-color:white;">
     <button class="w3-button" onclick="toggleSection('edu')">
-      <i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge brand"></i>Education
+      <i class="fa fa-certificate fa-fw w3-margin-right w3-large brand"></i>Education
       <i class="fa fa-chevron-down w3-right"></i>
     </button>
     <div id="edu" class="collapsible-content">
@@ -173,7 +243,7 @@
   <!-- Publications -->
   <div class="w3-container w3-card w3-margin-bottom" style="background-color:white;">
     <button class="w3-button" onclick="toggleSection('pub')">
-      <i class="fa fa-pencil fa-fw w3-margin-right w3-xxlarge brand"></i>Publications
+      <i class="fa fa-pencil fa-fw w3-margin-right w3-large brand"></i>Publications
       <i class="fa fa-chevron-down w3-right"></i>
     </button>
     <div id="pub" class="collapsible-content">
@@ -214,7 +284,7 @@
   <!-- Some Presentations -->
   <div class="w3-container w3-card w3-margin-bottom" style="background-color:white;">
     <button class="w3-button" onclick="toggleSection('pres')">
-      <i class="fa fa-plus-circle fa-fw w3-margin-right w3-xxlarge brand"></i>Some Presentations
+      <i class="fa fa-plus-circle fa-fw w3-margin-right w3-large brand"></i>Some Presentations
       <i class="fa fa-chevron-down w3-right"></i>
     </button>
     <div id="pres" class="collapsible-content">
@@ -234,7 +304,7 @@
   <!-- Teaching -->
   <div class="w3-container w3-card w3-margin-bottom" style="background-color:white;">
     <button class="w3-button" onclick="toggleSection('teach')">
-      <i class="fa fa-book fa-fw w3-margin-right w3-xxlarge brand"></i>Teaching
+      <i class="fa fa-book fa-fw w3-margin-right w3-large brand"></i>Teaching
       <i class="fa fa-chevron-down w3-right"></i>
     </button>
     <div id="teach" class="collapsible-content">
