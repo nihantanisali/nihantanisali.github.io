@@ -26,13 +26,22 @@
     .collapsible-content { display: none; padding: 0 16px; }
     .collapsible-content.open { display: block; }
 
+
     button.w3-button{
-      background-color: white;
-      border: none;
-      font-size: 20px;
-      width: 100%;
-      text-align: left;
-    }
+  background-color: white;
+  border: none;
+
+  /* About ile aynı */
+
+  color: black;
+  line-height: 1.2;
+
+  width: 100%;
+  text-align: left;
+}
+button.w3-button > i.fa-fw.w3-margin-right{
+  font-size: 1em !important;
+}
     button.w3-button:hover{ background-color: #f1f1f1; }
 
     /* Chevron: smaller + rotate on open */
@@ -83,28 +92,50 @@
       cursor: pointer;
       opacity: .9;
     }
+    .link-cursor{
+  text-decoration: none;
+  margin-left: 6px;
+  display: inline-block;
+  cursor: pointer;   /* sadece ikon el olur */
+}
+
+.link-cursor i{
+  font-size: 0.95em;
+  vertical-align: middle;
+}
+/* Tüm collapsible section’larda li’ler arası boşluk */
+.collapsible-content ul{
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-left: 22px;
+}
+
+.collapsible-content li{
+  margin: 0 0 12px 0;
+  line-height: 1.55;
+}
+
+/* Liste noktaları (bullet) gri olsun */
+.collapsible-content li::marker{
+  color: #555;
+}
 
     /* === Fixed full-viewport wallpaper (page grows but BG stays) === */
     body { position: relative; background: transparent !important; }
 body { background: #F5F7FA !important; }
 
-@media (max-width: 992px){
-  /* w3-row-padding içindeki iki kolon (stack olunca) aynı sol/sağ padding */
-  .w3-row-padding > .w3-third,
-  .w3-row-padding > .w3-twothird{
-    padding-left: 28px !important;
-    padding-right: 28px !important;
-  }
-
-  /* ikon/img sütununu aynı “blok” hissiyle hizala */
-  .contact-line > i,
-  .contact-line > img,
-  .link-line > i,
-  .link-line > img{
-    justify-self: center;
-  }
+.w3-card{
+  border-radius: 12px;
+  overflow: hidden; 
 }
 
+@media (max-width: 600px){
+  .w3-content{
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
+  }
+}
   </style>
 </head>
 
@@ -135,7 +166,7 @@ body { background: #F5F7FA !important; }
 
 <!-- Location (smaller) -->
 <div class="contact-line" style="margin-top:0; font-size:0.9em; line-height:1.2;">
-<i class="fa fa-map-marker fa-fw brand" style="font-size:1em;"></i>
+  <i class="fa fa-map-marker  brand" style="font-size:1em;"></i>
   <span>
     INRIA Saclay &amp; École polytechnique
     <a href="https://team.inria.fr/grace/" target="_blank" class="brand">GRACE team</a>
@@ -144,7 +175,7 @@ body { background: #F5F7FA !important; }
 
 <!-- Email (smaller) + extra space under -->
 <div class="contact-line contact-line--email" style="font-size:0.9em; line-height:1.2; margin-bottom:22px;">
-<i class="fa fa-envelope  fa-fw brand" style="font-size:1em;"></i>
+  <i class="fa fa-envelope  brand" style="font-size:1em;"></i>
   <span class="inline-with-icon">
     nihan dot tanisali at inria dot fr
     <img src="copy-paste-symbol.png" class="copy-icon" title="Click to copy" alt="copy">
@@ -352,8 +383,34 @@ body { background: #F5F7FA !important; }
         </ul>
         <br>
       </div>
+      
+
+      
+      
       <div class="w3-container">
-        <h5 class="w3-opacity"><b>Koç University</b> — teaching assistant</h5>
+        <h5 class="w3-opacity">
+  <b>
+    Algebraic Geometric Methods in Information Theory
+    <a href="https://sites.google.com/view/agmiit-2026/home"
+       class="link-cursor"
+       target="_blank" rel="noopener">
+      <i class="fa fa-link" aria-hidden="true"></i>
+    </a>
+  </b>
+   — teaching assistant
+</h5>
+
+        <h6 class="w3-text-grey"><i class="fa fa-calendar fa-fw w3-margin-right"></i>March 2 to 13, 2026</h6>
+        <ul>
+        <li>
+            Algebraic Geometric Codes by Beth Malmskog and Alain Couvreur
+          </li>
+        </ul>
+        <br>
+      </div>
+                                                
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b>Koç University</b> </h5>
         <h6 class="w3-text-grey"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2018–2023</h6>
         <ul>
           <li>Graduate Real Analysis-2 (2023)</li>
