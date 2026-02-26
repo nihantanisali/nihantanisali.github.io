@@ -136,6 +136,23 @@ body { background: #F5F7FA !important; }
     box-sizing: border-box;
   }
 }
+
+@media (max-width: 992px){
+  /* w3-row-padding içindeki iki kolon (stack olunca) aynı sol/sağ padding */
+  .w3-row-padding > .w3-third,
+  .w3-row-padding > .w3-twothird{
+    padding-left: 28px !important;
+    padding-right: 28px !important;
+  }
+
+  /* ikon/img sütununu aynı “blok” hissiyle hizala */
+  .contact-line > i,
+  .contact-line > img,
+  .link-line > i,
+  .link-line > img{
+    justify-self: center;
+  }
+}
   </style>
 </head>
 
