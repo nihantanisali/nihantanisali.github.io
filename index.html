@@ -419,6 +419,34 @@ body { background: #F5F7FA !important; }
     justify-self: center;
   }
 }
+
+
+/* === Mobile: fixed text width across all cards ===
+   Use the first/profile card width as the standard: 32px from each card edge.
+   Previously the collapsible cards were effectively narrower because
+   section padding + collapsible padding + inner container padding stacked up. */
+@media (max-width: 992px){
+  .profile-card{
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+
+  .section-card > button.w3-button{
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+
+  .section-card > .collapsible-content{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .section-card > .collapsible-content > .w3-container{
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
   </style>
   <!-- GoatCounter analytics -->
   <script
