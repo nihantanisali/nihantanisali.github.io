@@ -8,7 +8,8 @@
 
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/v4-shims.min.css">
 
   <style>
     /* === Sticky footer layout === */
@@ -36,13 +37,41 @@
   color: black;
   line-height: 1.2;
 
-  width: 100%;
+  /* w3-container padding'ini telafi et: hover gri alan kartın tam kenarlarına kadar gelsin */
+  width: calc(100% + 32px);
+  margin-left: -16px;
+  margin-right: -16px;
+  padding-left: 16px;
+  padding-right: 16px;
   text-align: left;
 }
 button.w3-button > i.fa-fw.w3-margin-right{
   font-size: 1em !important;
 }
     button.w3-button:hover{ background-color: #f1f1f1; }
+
+/* Collapsible kartlarda parent padding'den kalan ince beyaz çizgiyi kaldırır */
+.section-card{
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.section-card > button.w3-button{
+  display: block;
+}
+
+
+/* Açılan collapsible başlıkları About başlığıyla aynı stile getirir */
+.section-card > button.w3-button.open{
+  color: rgb(2, 61, 121);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.section-card > button.w3-button.open > i.fa-fw.w3-margin-right{
+  font-size: 20px !important;
+  line-height: 1;
+}
 
     /* Chevron: smaller + rotate on open */
     button.w3-button i.fa-chevron-down{
@@ -54,6 +83,19 @@ button.w3-button > i.fa-fw.w3-margin-right{
     }
     button.w3-button.open i.fa-chevron-down{ transform: rotate(180deg); }
 
+
+
+
+/* Collapsible içerideki küçük başlıklar: w3-opacity etkisini kaldırıp görünür koyu gri yap */
+.collapsible-content h6.w3-opacity{
+  opacity: 1;
+  color: #555;
+}
+
+.collapsible-content h6.w3-opacity b{
+  color: #555;
+  font-weight: 600;
+}
 
     /* === Profile lines === */
     .contact-line, .link-line{
@@ -69,16 +111,87 @@ button.w3-button > i.fa-fw.w3-margin-right{
       width: 18px; height: 18px; object-fit: contain;
     }
 
-    /* === Icon-only profiles row === */
-    .profiles-row{
+    /* === About title + profile icons: same 24px grid === */
+    .about-header{
       display: flex;
-      gap: 14px;
       align-items: center;
-      margin: 10px 0 10px 34px; /* 24px icon col + 10px gap = hizalama */
+      justify-content: space-between;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
     }
-    .profiles-row a{ text-decoration: none; }
-    .profiles-row i{ font-size: 20px; }
-    .profiles-row .rg-icon{ height: 30px; width: auto; display: block; }
+
+    .about-title{
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .about-title > i{
+      width: 20px;
+      height: 20px;
+      margin-right: 10px !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .profiles-row{
+      display: grid;
+      grid-template-columns: repeat(4, 20px);
+      column-gap: 14px;
+      align-items: center;
+      justify-content: end;
+      height: 20px;
+      margin: 0;
+    }
+
+    .profiles-row a{
+      width: 20px;
+      height: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .profiles-row a[aria-label="YouTube"]{ order: 1; }
+    .profiles-row a[aria-label="LinkedIn"]{ order: 2; }
+    .profiles-row a[aria-label="Google Scholar"]{ order: 3; }
+    .profiles-row a[aria-label="ResearchGate"]{ order: 4; }
+
+    .profiles-row i{
+      width: 20px;
+      height: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      line-height: 1;
+      transform: none;
+    }
+
+    /* Same icon family in the About header: Font Awesome 6 */
+    .about-title > i,
+    .profiles-row i{
+      font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands";
+    }
+
+    .profiles-row i.fa-brands{
+      font-family: "Font Awesome 6 Brands";
+      font-weight: 400;
+    }
+
+    .about-title > i.fa-solid{
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+    }
 
     .w3-third img { border-radius: 4px; }
     .w3-container h2.brand { margin-bottom: 18px; }
@@ -129,6 +242,159 @@ body { background: #F5F7FA !important; }
   overflow: hidden; 
 }
 
+
+
+/* === First profile card: clean 2x2 block layout === */
+.profile-card{
+  padding: 32px 44px 38px 44px;
+}
+
+.profile-grid{
+  display: grid;
+  grid-template-columns: 330px minmax(0, 1fr);
+  grid-template-areas:
+    "photo about"
+    "info  research";
+  column-gap: 78px;  /* horizontal distance between the two columns */
+  row-gap: 36px;     /* vertical distance between the two rows */
+  align-items: start;
+}
+
+.profile-photo-block{ grid-area: photo; }
+.profile-about-block{ grid-area: about; padding-top: 4px; }
+.profile-info-block{ grid-area: info; }
+.profile-research-block{ grid-area: research; padding-top: 0; }
+
+.profile-photo{
+  width: 100%;
+  max-width: 330px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+/* Bottom row: same internal rows on left and right.
+   This makes the baselines match:
+   Nihan Tanısalı ↔ Research Interests,
+   INRIA Saclay... ↔ coding theory... */
+.profile-info-block,
+#research-block{
+  display: grid;
+  grid-template-rows: 24px auto auto;
+  row-gap: 16px;
+  align-items: start;
+}
+
+.profile-name-line,
+.profile-location-line,
+.profile-email-line,
+.research-title,
+.research-list{
+  margin: 0 !important;
+}
+
+.profile-name-line,
+.research-title{
+  min-height: 24px;
+  line-height: 1.2;
+}
+
+.profile-name-line p,
+.research-title span{
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.profile-location-line,
+.profile-email-line,
+.research-list{
+  line-height: 1.2;
+}
+
+/* Name line has no icon column/indent. */
+.profile-name-line{
+  display: block;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.profile-name-line p{
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.research-title{
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.research-title i{
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+}
+
+/* Research topics are plain text, so align them with the About paragraph. */
+.research-list{
+  display: block;
+  padding-left: 0;
+}
+
+.research-list::before{
+  content: none;
+}
+
+@media (max-width: 992px){
+  .profile-card{
+    /* Match the inner text width of the collapsible cards (Education, etc.) on stacked/mobile layout. */
+    padding: 28px 32px 34px 32px;
+  }
+
+  .profile-grid{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "photo"
+      "info"
+      "about"
+      "research";
+    row-gap: 38px;
+  }
+
+  .profile-info-block{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    row-gap: 14px;
+  }
+
+  .profile-name-line{
+    display: block;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  .profile-name-line p{
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .profile-photo{
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 600px){
+  .profile-card{
+    /* Education text sits about 32px inside the card; keep the first card text on the same width. */
+    padding: 24px 32px 30px 32px;
+  }
+}
+
 @media (max-width: 600px){
   .w3-content{
     padding-left: 12px;
@@ -154,6 +420,12 @@ body { background: #F5F7FA !important; }
   }
 }
   </style>
+  <!-- GoatCounter analytics -->
+  <script
+    data-goatcounter="https://nhn1111.goatcounter.com/count"
+    async
+    src="https://gc.zgo.at/count.js">
+  </script>
 </head>
 
 <body>
@@ -162,81 +434,53 @@ body { background: #F5F7FA !important; }
   <div class="w3-content w3-margin-top" style="max-width:1200px;">
 
     <!-- PROFILE CARD -->
-    <div class="w3-container w3-card w3-margin-bottom" style="background-color:white;">
-      <div class="w3-row-padding" style="padding-top:24px; padding-bottom:10px;">
+    <div class="w3-container w3-card w3-margin-bottom profile-card" style="background-color:white;">
+      <div class="profile-grid">
 
-
-        <div class="w3-third" style="padding-right:28px;">
-
-
-<img src="pic.png" style="width:92%; display:block; margin:0 auto 22px auto;" alt="Profile photo">
-
-
-<!-- NAME (same text start as location/email) -->
-<div class="contact-line" style="margin:0 0 22px 0;">
-  <span></span>
-  <p class="w3-text-theme brand" style="margin:0; font-size:18px; font-weight:600; line-height:1.2;">
-    Nihan Tanısalı
-  </p>
-</div>
-
-
-<!-- Location (smaller) -->
-<div class="contact-line" style="margin-top:0; font-size:0.9em; line-height:1.2;">
-  <i class="fa fa-map-marker  brand" style="font-size:1em;"></i>
-  <span>
-    INRIA Saclay &amp; École polytechnique
-    <a href="https://team.inria.fr/grace/" target="_blank" class="brand">GRACE team</a>
-  </span>
-</div>
-
-<!-- Email (smaller) + extra space under -->
-<div class="contact-line contact-line--email" style="font-size:0.9em; line-height:1.2; margin-bottom:22px;">
-  <i class="fa fa-envelope  brand" style="font-size:1em;"></i>
-  <span class="inline-with-icon">
-    nihan dot tanisali at inria dot fr
-    <img src="copy-paste-symbol.png" class="copy-icon" title="Click to copy" alt="copy">
-  </span>
-</div>
-
-
+        <!-- TOP LEFT: photo -->
+        <div class="profile-photo-block">
+          <img src="pic.png" class="profile-photo" alt="Profile photo">
         </div>
 
-        <!-- RIGHT: about + (villager/encode/icons) + research interests -->
-        <div class="w3-twothird w3-container" style="padding-left:28px; padding-top:14px; padding-bottom:18px;">
-<!-- ABOUT (title + icons on same row) -->
-<div style="display:flex; align-items:flex-start; justify-content:space-between; gap:25px; flex-wrap:wrap; margin-bottom:25px;">
-  <p class="w3-text-theme brand" style="margin:0; font-size:18px; font-weight:600; line-height:1.2;">
-    <i class="fa fa-user fa-fw w3-margin-right brand"></i>About
-  </p>
+        <!-- TOP RIGHT: About + profile links -->
+        <div class="profile-about-block">
+          <div class="about-header">
+            <p class="w3-text-theme brand about-title">
+              <i class="fa-solid fa-user brand"></i>About
+            </p>
 
-  <div class="profiles-row" style="margin:0;">
-    <a href="https://www.youtube.com/watch?v=bUFHMUh1T7g&t=2s"
-       target="_blank" rel="noopener noreferrer"
-       class="brand" title="YouTube" aria-label="YouTube">
-      <i class="fa fa-youtube"></i>
-    </a>
+            <div class="profiles-row">
+              <a href="https://www.youtube.com/watch?v=bUFHMUh1T7g&t=2s"
+                 target="_blank" rel="noopener noreferrer"
+                 class="brand" title="YouTube" aria-label="YouTube">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
 
-    <a href="https://www.linkedin.com/in/nihan-tanisali-566737321/"
-       target="_blank" rel="noopener noreferrer"
-       class="brand" title="LinkedIn" aria-label="LinkedIn">
-      <i class="fa fa-linkedin"></i>
-    </a>
+              <a href="https://www.linkedin.com/in/nihan-tanisali-566737321/"
+                 target="_blank" rel="noopener noreferrer"
+                 class="brand" title="LinkedIn" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
 
-    <a href="https://www.researchgate.net/profile/Nihan-Tanisali"
-       target="_blank" rel="noopener noreferrer"
-       class="brand" title="ResearchGate" aria-label="ResearchGate">
-      <img src="researchgate.png" alt="ResearchGate" class="rg-icon">
-    </a>
-  </div>
-</div>
+              <a href="https://scholar.google.com/citations?hl=en&user=TDHxSNQAAAAJ"
+                 target="_blank" rel="noopener noreferrer"
+                 class="brand" title="Google Scholar" aria-label="Google Scholar">
+                <i class="fa-brands fa-google-scholar"></i>
+              </a>
 
-<p style="margin:0 0 25px 0;">
-  I am a PhD candidate at INRIA Saclay &amp; École polytechnique.
-  My research focuses on coding theory and related topics in combinatorics.
-</p>
+              <a href="https://www.researchgate.net/profile/Nihan-Tanisali"
+                 target="_blank" rel="noopener noreferrer"
+                 class="brand" title="ResearchGate" aria-label="ResearchGate">
+                <i class="fa-brands fa-researchgate"></i>
+              </a>
+            </div>
+          </div>
 
-          <!-- ENCODE + Villager under About -->
+          <p style="margin:0 0 25px 0;">
+            I am a PhD candidate at INRIA Saclay &amp; École polytechnique.
+            My research focuses on coding theory and related topics in combinatorics.
+          </p>
+
           <div class="link-line" style="margin-top:10px;">
             <img src="encode.png" alt="ENCODE logo" style="height:1.3em; width:auto;">
             <span>
@@ -254,26 +498,52 @@ body { background: #F5F7FA !important; }
               <a href="https://nesinkoyleri.org/en/main-page/" target="_blank" class="brand">villager</a>!
             </span>
           </div>
+
           <div class="link-line">
             <img src="arithmeticwinter.svg" alt="Arithmetic Winter School" style="height:1.4em; width:auto;">
             <span>
-              I am in the organization committee of 
+              I am in the organization committee of
               <a href="https://arithmeticwinter.github.io/" target="_blank" class="brand">Arithmetic Winter School</a>.
             </span>
           </div>
+        </div>
 
+        <!-- BOTTOM LEFT: name + contact -->
+        <div class="profile-info-block">
+          <div class="profile-name-line">
+            <p class="w3-text-theme brand" style="margin:0; font-size:18px; font-weight:600; line-height:1.2;">
+              <span id="name-text">Nihan Tanısalı</span>
+            </p>
+          </div>
 
+          <div class="contact-line profile-location-line" style="font-size:1em; line-height:1.2;">
+            <i class="fa fa-map-marker brand" style="font-size:1em;"></i>
+            <span id="location-text">
+              INRIA Saclay &amp; École polytechnique
+              <a href="https://team.inria.fr/grace/" target="_blank" class="brand">GRACE team</a>
+            </span>
+          </div>
 
-          <br>
+          <div class="contact-line contact-line--email profile-email-line" style="font-size:1em; line-height:1.2;">
+            <i class="fa fa-envelope brand" style="font-size:1em;"></i>
+            <span class="inline-with-icon">
+              nihan dot tanisali at inria dot fr
+              <img src="copy-paste-symbol.png" class="copy-icon" title="Click to copy" alt="copy">
+            </span>
+          </div>
+        </div>
 
-          <!-- RESEARCH INTERESTS -->
-          <p class="w3-large w3-text-theme">
-            <b class="brand"><i class="fa fa-lightbulb-o fa-fw w3-margin-right brand"></i>Research Interests</b>
-          </p>
-          <p>coding theory, additive combinatorics, combinatorics on words</p>
-
-          <br>
-
+        <!-- BOTTOM RIGHT: Research Interests -->
+        <div class="profile-research-block">
+          <div id="research-block">
+            <p class="w3-text-theme brand research-title">
+              <i class="fa fa-lightbulb-o brand"></i>
+              <span id="research-text">Research Interests</span>
+            </p>
+            <p class="research-list">
+              <span id="research-list-text">coding theory, additive combinatorics, combinatorics on words</span>
+            </p>
+          </div>
         </div>
 
       </div>
@@ -282,14 +552,14 @@ body { background: #F5F7FA !important; }
 
 
   <!-- Education -->
-  <div class="w3-container w3-card w3-margin-bottom" style="background-color:white;">
+  <div class="w3-container w3-card w3-margin-bottom section-card" style="background-color:white;">
     <button class="w3-button" onclick="toggleSection('edu')">
       <i class="fa fa-certificate fa-fw w3-margin-right w3-large brand"></i>Education
       <i class="fa fa-chevron-down w3-right"></i>
     </button>
     <div id="edu" class="collapsible-content">
       <div class="w3-container">
-        <h6 class="w3-opacity"><b>INRIA Saclay & École polytechnique</b></h6>
+        <h6 class="w3-opacity"><b>Inria Saclay & École polytechnique</b></h6>
         <h6 class="w3-text-grey"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2023 - <span class="w3-tag w3-round" style="background-color: rgb(2, 61, 121);">current</span></h6>
         <p>PhD student under the supervision of <a href="https://www.lix.polytechnique.fr/Labo/Alain.Couvreur/" class="brand" target="_blank">Alain Couvreur</a> and <a href="https://people.ucd.ie/gary.mcguire" class="brand" target="_blank">Gary McGuire</a>.</p>
       </div>
@@ -305,13 +575,30 @@ body { background: #F5F7FA !important; }
   </div>
 
   <!-- Publications -->
-  <div class="w3-container w3-card w3-margin-bottom" style="background-color:white;">
+  <div class="w3-container w3-card w3-margin-bottom section-card" style="background-color:white;">
     <button class="w3-button" onclick="toggleSection('pub')">
-      <i class="fa fa-pencil fa-fw w3-margin-right w3-large brand"></i>Publications
+      <i class="fa fa-pencil fa-fw w3-margin-right w3-large brand"></i>Publications and Preprints
       <i class="fa fa-chevron-down w3-right"></i>
     </button>
     <div id="pub" class="collapsible-content">
       <div class="w3-container">
+      <h6 class="w3-opacity"><b>Preprints</b></h6>
+      <ul>
+        <li>
+          <a href="https://arxiv.org/abs/2605.20504" class="brand" target="_blank">
+            Box Progressions, Abelian Power-Free Morphisms and A Sieve Technique for the Template Method.
+          </a>
+          <br />
+          with Sadık Eyidoğan and Haydar Göral.
+          <br />
+	  to appear in Mathematics of Computation.
+          <br />
+          <a href="https://github.com/nihantanisali/Abelian-Power-Free-Morphisms" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+            <i class="fa fa-github fa-fw w3-margin-right w3-xlarge brand"></i>Codes
+          </a>
+        </li>
+        </ul>
+	<h6 class="w3-opacity"><b>Publications</b></h6>
       <ul>
         <li>
           <a href="https://arxiv.org/abs/2412.15160" class="brand" target="_blank">
@@ -327,26 +614,13 @@ body { background: #F5F7FA !important; }
           </a>
         </li>
       </ul>
-
-      <h6 class="w3-opacity"><b>Preprints</b></h6>
-      <ul>
-        <li>
-          <span style="color:gray;">Box Progressions, Abelian Power-free Morphisms and A Sieve Technique for the Template Method</span>
-          <br />
-          with Sadık Eyidoğan and Haydar Göral.
-          <br />
-          <a href="https://github.com/nihantanisali/Abelian-Power-Free-Morphisms" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-            <i class="fa fa-github fa-fw w3-margin-right w3-xlarge brand"></i>Codes
-          </a>
-        </li>
-        </ul>
         <br>
       </div>
     </div>
   </div>
 
   <!-- Some Presentations -->
-  <div class="w3-container w3-card w3-margin-bottom" style="background-color:white;">
+  <div class="w3-container w3-card w3-margin-bottom section-card" style="background-color:white;">
     <button class="w3-button" onclick="toggleSection('pres')">
       <i class="fa fa-plus-circle fa-fw w3-margin-right w3-large brand"></i>Some Presentations
       <i class="fa fa-chevron-down w3-right"></i>
@@ -366,7 +640,7 @@ body { background: #F5F7FA !important; }
   </div>
 
   <!-- Teaching -->
-  <div class="w3-container w3-card w3-margin-bottom" style="background-color:white;">
+  <div class="w3-container w3-card w3-margin-bottom section-card" style="background-color:white;">
     <button class="w3-button" onclick="toggleSection('teach')">
       <i class="fa fa-book fa-fw w3-margin-right w3-large brand"></i>Teaching
       <i class="fa fa-chevron-down w3-right"></i>
@@ -496,7 +770,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.execCommand('copy'); temp.remove();
   }
 });
+
 </script>
 </body>
 </html>
-
