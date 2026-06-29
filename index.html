@@ -205,6 +205,17 @@ button.w3-button > i.fa-fw.w3-margin-right{
       cursor: pointer;
       opacity: .9;
     }
+    .slides-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 4px;
+      text-decoration: none;
+      vertical-align: middle;
+    }
+
+    .slides-icon i { font-size: 1.05em; }
+
     .link-cursor{
   text-decoration: none;
   margin-left: 6px;
@@ -349,6 +360,14 @@ body { background: #F5F7FA !important; }
 .research-list::before{
   content: none;
 }
+
+    /* Presentation date line */
+    .talk-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45em 1.2em;
+    }
+
 
 @media (max-width: 992px){
   .profile-card{
@@ -656,11 +675,39 @@ body { background: #F5F7FA !important; }
     <div id="pres" class="collapsible-content">
       <div class="w3-container">
         <ul>
-          <li>On the structure of the Schur squares of Twisted Generalized Reed-Solomon codes and applications to cryptanalysis, Journées Codage et Cryptographie (C2), April 2, 
-            2025; PQCrypto, April 8, 2025; <a href="https://sites.google.com/view/picseminar/home" class="brand" target="_blank">PICS seminar</a>, 14 October 2025. <a href="TGRS_pics.pdf" class="brand" target="_blank">slides</a>  </li>
-          <li>Box Progressions and Abelian Power Free Words, Journées Arithmétiques, June 2025 <a href="JA_presentation.pdf" target="_blank" class="brand">slides</a></li>
-          <li>Vosper Theorem From Additive Combinatorics, IZTECH departmental seminars, May 22, 2024</li>
-          <li>Classification of Small Square Spaces, Suusan CIMPA summer school, 2022</li>
+
+
+  <li> Inverse Theroems for Schur Products of Codes <a href="Encode_presentation.pdf" target="_blank" class="brand slides-icon" title="Slides" aria-label="Slides">
+  <i class="fa-solid fa-file-pdf"></i></a>
+  <br />
+  ENCODE Final Workshop 2026 </li>
+
+
+  <li>
+          On the structure of the Schur squares of Twisted Generalized Reed-Solomon codes and applications to cryptanalysis  <a href="TGRS_pics.pdf" class="brand slides-icon" target="_blank" title="Slides" aria-label="Slides"><i class="fa-solid fa-file-pdf"></i></a>
+  <br />
+
+          <span class="talk-list">
+            <span>Journées Codage et Cryptographie, April 2025;</span>
+            <span>PQCrypto, April 2025;</span>
+            <span>
+              <a href="https://sites.google.com/view/picseminar/home" class="brand" target="_blank">PICS seminar</a>, October 2025.
+            </span>
+          </span>
+  </li>
+
+
+  <li>Box Progressions and Abelian Power Free Words <a href="JA_presentation.pdf" target="_blank" class="brand slides-icon"
+      title="Slides" aria-label="Slides"><i class="fa-solid fa-file-pdf"></i></a>
+  <br />
+  Journées Arithmétiques, June 2025 </li>
+        <li> Vosper Theorem From Additive Combinatorics,
+  <br />
+  IZTECH departmental seminars, May 22, 2024</li>
+
+  <li>Classification of Small Square Spaces,
+  <br />
+  Suusan CIMPA summer school, 2022</li>
         </ul>
         <br>
       </div>
